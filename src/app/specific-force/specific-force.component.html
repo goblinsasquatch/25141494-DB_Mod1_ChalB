@@ -1,6 +1,8 @@
+<!-- If nothing selected yet -->
 <div *ngIf="!selectedForceId" class="text-center">
   <p>Force Contact Information will be displayed here, if available</p>
 </div>
+<!-- Display retreived data -->
 <div class="card" *ngIf="specificForce">
   <div class="card-body">
     <h4 class="card-title">{{ specificForce.name }}</h4>

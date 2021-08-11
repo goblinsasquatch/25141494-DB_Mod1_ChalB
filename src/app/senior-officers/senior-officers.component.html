@@ -1,9 +1,12 @@
+<!-- If nothing selected yet -->
 <div *ngIf="!selectedForceId" class="text-center">
   <p>Force Senior Officer data will be displayed here, if available</p>
 </div>
+<!-- If data retrieved, but nothing published by Force -->
 <div *ngIf="snrOffrList.length <= 0 && selectedForceId" class="text-center">
   <p>This Force has no Senior Officer data available</p>
 </div>
+<!-- Create list of retrieved Officers -->
 <div class="card" *ngFor="let officer of snrOffrList">
   <div class="card-body">
     <h4 class="card-title">{{ officer.name }}</h4>
