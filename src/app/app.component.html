@@ -28,50 +28,17 @@
 
   <div class="row">
     <div class="col-12 col-lg-4 offset-lg-2 mb-4">
-      <div *ngIf="!selectedForceId" class="text-center">
-        <p>Force Senior Officer data will be displayed here, if available</p>
-      </div>
-      <div
-        *ngIf="snrOffrList.length <= 0 && selectedForceId"
-        class="text-center"
-      >
-        <p>This Force has no Senior Officer data available</p>
-      </div>
-      <div class="card" *ngFor="let officer of snrOffrList">
-        <div class="card-body">
-          <h4 class="card-title">{{ officer.name }}</h4>
-          <h6 class="card-subtitle mb-2 text-muted">{{ officer.rank }}</h6>
-          <p class="card-text text-muted">
-            {{ officer.contact_details?.twitter }}
-          </p>
-        </div>
-      </div>
+      <app-senior-officers
+        [selectedForceId]="selectedForceId"
+        [snrOffrList]="snrOffrList"
+      ></app-senior-officers>
     </div>
 
     <div class="col-12 col-lg-4 mb-4">
-      <div *ngIf="!selectedForceId" class="text-center">
-        <p>Force Contact Information will be displayed here, if available</p>
-      </div>
-      <div class="card" *ngIf="specificForce">
-        <div class="card-body">
-          <h4 class="card-title">{{ specificForce.name }}</h4>
-          <a [href]="specificForce.url">
-            <h6 class="card-subtitle mb-2 text-muted">
-              {{ specificForce.url }}
-            </h6>
-          </a>
-          <a
-            *ngFor="let method of specificForce.engagement_methods"
-            [href]="method.url"
-          >
-            <p class="card-text text-muted">{{ method.title }}</p>
-          </a>
-          <p class="card-text text-muted">
-            Dial: {{ specificForce.telephone }}
-          </p>
-          <div class="card-text" [innerHTML]="specificForce.description"></div>
-        </div>
-      </div>
+      <app-specific-force
+        [selectedForceId]="selectedForceId"
+        [specificForce]="specificForce"
+      ></app-specific-force>
     </div>
   </div>
 </div>

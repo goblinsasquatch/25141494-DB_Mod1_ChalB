@@ -1,0 +1,15 @@
+<div *ngIf="!selectedForceId" class="text-center">
+  <p>Force Senior Officer data will be displayed here, if available</p>
+</div>
+<div *ngIf="snrOffrList.length <= 0 && selectedForceId" class="text-center">
+  <p>This Force has no Senior Officer data available</p>
+</div>
+<div class="card" *ngFor="let officer of snrOffrList">
+  <div class="card-body">
+    <h4 class="card-title">{{ officer.name }}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">{{ officer.rank }}</h6>
+    <p class="card-text text-muted">
+      {{ officer.contact_details?.twitter }}
+    </p>
+  </div>
+</div>

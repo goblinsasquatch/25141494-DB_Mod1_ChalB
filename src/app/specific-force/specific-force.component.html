@@ -1,0 +1,21 @@
+<div *ngIf="!selectedForceId" class="text-center">
+  <p>Force Contact Information will be displayed here, if available</p>
+</div>
+<div class="card" *ngIf="specificForce">
+  <div class="card-body">
+    <h4 class="card-title">{{ specificForce.name }}</h4>
+    <a [href]="specificForce.url">
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ specificForce.url }}
+      </h6>
+    </a>
+    <a
+      *ngFor="let method of specificForce.engagement_methods"
+      [href]="method.url"
+    >
+      <p class="card-text text-muted">{{ method.title }}</p>
+    </a>
+    <p class="card-text text-muted">Dial: {{ specificForce.telephone }}</p>
+    <div class="card-text" [innerHTML]="specificForce.description"></div>
+  </div>
+</div>

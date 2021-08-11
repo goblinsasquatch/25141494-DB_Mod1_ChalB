@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {
-  Forces,
-  HttpService,
-  SeniorOfficers,
-  SpecificForce,
-} from './http.service';
+import { HttpService } from './http.service';
+import { Forces, SeniorOfficers, SpecificForce } from './police.model';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +9,9 @@ import {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  snrOffrList: SeniorOfficers[] = [];
   forcesList: Forces[] = [];
   selectedForceId: string = '';
+  snrOffrList: SeniorOfficers[] = [];
   specificForce: SpecificForce | undefined;
 
   constructor(private dataService: HttpService) {}
